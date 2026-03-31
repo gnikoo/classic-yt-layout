@@ -396,11 +396,19 @@
       yt._cmd('toggleCaptions');
     }));
 
-    var settingsBtn = makeBtn(P.settings, 'Settings', function () {
+    var settingsBtn = makeBtn(P.settings, 'Settings', function (e) {
+      e.stopPropagation();
       buildMenu();
       menu.classList.toggle('open');
     });
     bar.appendChild(settingsBtn);
+
+    // Close menu when clicking outside — declared after settingsBtn so reference is valid
+    document.addEventListener('click', function (e) {
+      if (!menu.contains(e.target) && e.target !== settingsBtn) {
+        menu.classList.remove('open');
+      }
+    });
 
     bar.appendChild(makeBtn(P.fullscreen, 'Full screen', function () {
       if (document.fullscreenElement) document.exitFullscreen();
