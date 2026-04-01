@@ -224,8 +224,8 @@
 
     function positionOverlay() {
       var r = iframe.getBoundingClientRect();
-      overlay.style.top    = (r.top  + window.scrollY) + 'px';
-      overlay.style.left   = (r.left + window.scrollX) + 'px';
+      overlay.style.top    = r.top    + 'px';
+      overlay.style.left   = r.left   + 'px';
       overlay.style.width  = r.width  + 'px';
       overlay.style.height = r.height + 'px';
     }
