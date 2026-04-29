@@ -7,7 +7,7 @@ var STORE_URL_CHROME  = 'https://chromewebstore.google.com/detail/classic-yt-lay
 
 // Set rate button URL based on browser
 var rateBtn = document.getElementById('rateBtn');
-if (typeof chrome !== "undefined" && typeof browser === "undefined") {
+if (typeof browser !== 'undefined') {
   rateBtn.href = STORE_URL_FIREFOX;
 } else {
   rateBtn.href = STORE_URL_CHROME;
